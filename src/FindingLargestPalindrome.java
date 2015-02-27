@@ -2,6 +2,7 @@
 public class FindingLargestPalindrome {
 
 	public static void main(String[] args) {
+		int biggest = 0, maxI = 0, maxJ = 0;
 		for (int i = 999; i > 99; i--) {
 			for (int j = 999; j>=i; j--) {
 				int result = i*j; 
@@ -12,14 +13,19 @@ public class FindingLargestPalindrome {
 				StringBuilder resultSB = new StringBuilder(resultStr);
 				String reverseStr = resultSB.reverse().toString();
 				if (resultStr.equals(reverseStr)) {
-					System.out.println("The largest Palindrome number is "+result+" = "+i+"*"+j);
-
-					return;
+					if (result > biggest) {
+						biggest = result;
+						maxI = i;
+						maxJ = j;
+					}
+					
 				}
 				
 			}
 			
 		}
+		
+		System.out.println("The largest Palindrome number is "+biggest+" = "+maxI+" * "+maxJ);
 
 	}
 
